@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potulski Joias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><h1>Potulski Joias</h1></a>
+    </header>
+
+    <div id="menu">
+        <a href="home.html" id="atual">Início</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="marcas.html">Marcas</a>
+        <a href="login.html">Login</a>
+        <a href="carrinho.html">Carrinho</a>
+    </div>
+
+    <section class="banner">
+        <h1>Nova Coleção Primavera</h1>
+        <p><b>Descubra a beleza das nossas peças exclusivas.</b></p>
+        <a href="#produtos" class="button">Comprar Agora</a>
+    </section>
+
+    <!-- Carousel (fixed with placeholder images) -->
+    <section class="carousel">
+        <img src="banner1.jpg" alt="Banner 1" class="active">
+        <img src="banner2.jpg" alt="Banner 2">
+        <img src="banner3.jpg" alt="Banner 3">
+        <button id="prevBtn">◄</button>
+        <button id="nextBtn">►</button>
+    </section>
+
+    <section id="produtos">
+        <h2>Anéis</h2>
+        <div class="produto-grade">
+            <div class="produto">
+                <img src="Anel de Ouro.jpg" alt="Anel de Ouro">
+                <h3>Anel de Ouro</h3>
+                <p>R$ 1.500,00</p>
+                <a href="#" class="button" onclick="adicionarAoCarrinho('Anel de Ouro', 1500.00)">Adicionar ao Carrinho</a>
+            </div>
+            <div class="produto">
+                <img src="Anel De Prata Envelhecido Com Zircônia Cristal Oval.webp" alt="Anel de Prata com Zircônia">
+                <h3>Anel De Prata Envelhecido Com Zircônia Cristal Oval</h3>
+                <p>R$ 200,00</p>
+                <a href="#" class="button" onclick="adicionarAoCarrinho('Anel De Prata Envelhecido Com Zircônia Cristal Oval', 200.00)">Adicionar ao Carrinho</a>
+            </div>
+            <div class="produto">
+                <img src="Anel de Ouro Amarelo com Esmeralda.webp" alt="Anel com Esmeralda">
+                <h3>Anel de Ouro Amarelo com Esmeralda</h3>
+                <p>R$ 5.000,00</p>
+                <a href="#" class="button" onclick="adicionarAoCarrinho('Anel de Ouro Amarelo com Esmeralda', 5000.00)">Adicionar ao Carrinho</a>
+            </div>
+        </div>
+        <div class="produto-grade">
+            <div class="produto">
+                <img src="Anel de Prata com Ametista.webp" alt="Anel de Prata com Ametista">
+                <h3>Anel de Prata com Ametista</h3>
+                <p>R$ 800,00</p>
+                <a href="#" class="button" onclick="adicionarAoCarrinho('Anel de Prata com Ametista', 800.00)">Adicionar ao Carrinho</a>
+            </div>
+            <div class="produto">
+                <img src="Anel de Ouro Branco com Safira e diamantes.jpg" alt="Anel com Safira e Diamantes">
+                <h3>Anel de Ouro Branco com Safira e Diamantes</h3>
+                <p>R$ 6.300,00</p>
+                <a href="#" class="button" onclick="adicionarAoCarrinho('Anel de Ouro Branco com Safira e Diamantes', 6300.00)">Adicionar ao Carrinho</a>
+            </div>
+            <div class="produto">
+                <img src="Anel Solitário de Diamante.webp" alt="Anel Solitário de Diamante">
+                <h3>Anel Solitário de Diamante</h3>
+                <p>R$ 11.900,00</p>
+                <a href="#" class="button" onclick="adicionarAoCarrinho('Anel Solitário de Diamante', 11900.00)">Adicionar ao Carrinho</a>
+            </div>
+        </div>
+        <div class="produto-grade">
+            <div class="produto">
+                <img src="Anel de Ouro Rosé com Rubi.png" alt="Anel com Rubi">
+                <h3>Anel de Ouro Rosé com Rubi</h3>
+                <p>R$ 11.500,00</p>
+                <a href="#" class="button" onclick="adicionarAoCarrinho('Anel de Ouro Rosé com Rubi', 11500.00)">Adicionar ao Carrinho</a>
+            </div>
+            <div class="produto">
+                <img src="Anel de Ouro com Diamantes.jpg" alt="Anel com Diamantes">
+                <h3>Anel de Ouro com Diamantes</h3>
+                <p>R$ 5.300,00</p>
+                <a href="#" class="button" onclick="adicionarAoCarrinho('Anel de Ouro com Diamantes', 5300.00)">Adicionar ao Carrinho</a>
+            </div>
+            <div class="produto">
+                <img src="Anel de Ouro Rosé com diamante.jpg" alt="Anel Rosé com Diamante">
+                <h3>Anel de Ouro Rosé com Diamante</h3>
+                <p>R$ 999,99</p>
+                <a href="#" class="button" onclick="adicionarAoCarrinho('Anel de Ouro Rosé com Diamante', 999.99)">Adicionar ao Carrinho</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="voltar">
+        <a href="#inicio" class="button">Voltar ao Início</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Potulski Joias. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".carousel img");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle("active", i === index);
+            });
+        }
+
+        prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        });
+
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        });
+
+        showImage(currentIndex);
+
+        // Add to cart functionality
+        function adicionarAoCarrinho(nome, preco) {
+            try {
+                const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+                carrinho.push({ nome, preco });
+                localStorage.setItem("carrinho", JSON.stringify(carrinho));
+                alert(`${nome} foi adicionado ao carrinho!`);
+            } catch (e) {
+                console.error("Erro ao adicionar ao carrinho:", e);
+                alert("Ocorreu um erro ao adicionar o item ao carrinho.");
+            }
+        }
+    </script>
+</body>
+</html>
